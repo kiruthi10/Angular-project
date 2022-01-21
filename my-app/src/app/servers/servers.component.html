@@ -1,0 +1,39 @@
+<h4>Ther Servers component</h4>
+
+<!-- Event binding -->
+<label>Server Name</label>
+<input type="text" class= "form-contact" (input)= "onUpdateServerName($event)">
+<span>{{serverName}}</span>
+
+
+<!-- string interpolation && added ngStyle-->
+<p [ngStyle]="{background: getColor()}" [ngClass]="{online : status == 'online'}">{{'Server'}} status is {{status}} and Server Id is {{serverId}}</p>
+<p>Server status using method -- {{getstatus()}}</p>
+
+
+<!-- property binding for operations and functions-->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onServerCreate()"> Add Sever </button>
+<!-- property binding for displaying data-->
+<!-- <p [innerText]="allowNewServer"></p> -->
+
+<!-- string interpolation binding for text -->
+<!-- <p>{{allowNewServer}}</p> -->
+
+<!-- ngIf directive -->
+<!-- <p *ngIf="serverCreated">server was created and server name is {{serverName}}</p> -->
+
+<!-- ngIf-else directive, here no server is local reference to else condition in ngIfs-->
+<p *ngIf="serverCreated; else noserver">server was created and server name is {{serverName}}</p> 
+<ng-template #noserver>
+    <p>no server created</p>
+</ng-template>
+
+
+<!-- two way data binding -->
+<label>Server Id</label>
+<input type="number" class="form-conatct" [(ngModel)]='serverId'/>
+<span>{{serverId}}</span>
+
+<hr/>
+<!-- calling server component from servers component-->
+<!-- <app-server></app-server> -->

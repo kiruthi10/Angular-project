@@ -1,0 +1,16 @@
+<h4>The Server component</h4>
+
+<p>Assignment solution</p>
+<label>Username</label>
+<input type="text" class="form-contact" [(ngModel)]="username">
+<span>{{username}}</span>
+<br/>
+<button class="btn btn-primary" 
+[disabled]="username === ''"
+(click)="username = ''">Reset username</button>
+<br/>
+<!----------------------------------directive------------------------------->
+<!-----ngIf---toggling through the click event --- true it wil not show p if false it will show the display---->
+<button class="btn btn-primary" (click)= "onToggleDisplay()">Display Details</button> 
+<p *ngIf="showDisplay">showing the details</p>
+<div *ngFor="let logItem of log" [ngStyle]="{backgroundColor: logItem >=5 ? 'blue' : 'red'}">{{logItem}}</div>
