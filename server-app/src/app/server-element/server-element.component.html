@@ -10,10 +10,9 @@
     <div class="panel panel-default">
         <div class="panel-heading">{{ element.name }}</div>
         <div class="panel-body">
-            <p>
-            <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
-            <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-            </p>
+            <!-- the code from here is added in its own component tag (i.e) app-server-element tag 
+            ng-content tag helps to call it without ng-content tag the code with app-server-element will not work-->
+            <ng-content></ng-content>
         </div>
     </div>
 </body>

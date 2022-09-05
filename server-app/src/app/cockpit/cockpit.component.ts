@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -13,9 +13,9 @@ export class CockpitComponent implements OnInit {
   // event data is emitted to other component using event emitter - 
   // Creates an instance of this class that can deliver events synchronously or asynchronously. EventEmitter<T> -- generic typr
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
-  newServerName = '';
-  newServerContent = '';
-
+  // newServerName = '';
+  // newServerContent = '';
+  @ViewChild('serverContentInput', { static: true }) serverContentInput!: ElementRef;
   constructor() { }
 
   ngOnInit(): void {
@@ -26,14 +26,15 @@ export class CockpitComponent implements OnInit {
     console.log(nameInput.value);
     this.serverCreated.emit({
      serverName: nameInput.value,
-     serverContent: this.newServerContent
+     serverContent: this.serverContentInput.nativeElement.value
     });
   }
 
   onAddBlueprint(nameInput: HTMLInputElement) {
+    console.log(this.serverContentInput)
     this.serverCreated.emit({
       serverName: nameInput.value,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
      });
   }
 }

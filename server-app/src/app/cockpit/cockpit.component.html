@@ -16,7 +16,11 @@
       <!-- binding through local reference - #serverNameInput -->
       <input type="text" class="form-control" #serverNameInput>
       <label>Server Content</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerContent">
+      <!-- passing server content using two way data binding -->
+      <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
+      
+      <!-- passing server content using viewchild -->
+      <input #serverContentInput type="text" class="form-control" >
       <br>
       <!-- getting the serverNameInput value and passing to ts file as parameter -->
       <button

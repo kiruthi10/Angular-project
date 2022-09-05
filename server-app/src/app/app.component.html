@@ -17,7 +17,12 @@
     <div class="row">
       <div class="col-xs-12">
         <!-- [srvElement]- it is a alias for serverElement type definition [element] -->
-        <app-server-element *ngFor="let serverElement of serverElements" [srvElement] ='serverElement'></app-server-element>
+        <app-server-element *ngFor="let serverElement of serverElements" [srvElement] ='serverElement'>
+          <p>
+            <strong *ngIf="serverElement.type === 'server'" style="color: red;">{{ serverElement.content }}</strong>
+            <strong *ngIf="serverElement.type === 'blueprint'" >{{ serverElement.content }}</strong>
+          </p>
+        </app-server-element>
       </div>
     </div>
   </div>
