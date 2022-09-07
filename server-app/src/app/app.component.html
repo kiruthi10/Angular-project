@@ -16,11 +16,14 @@
     <hr>
     <div class="row">
       <div class="col-xs-12">
+        <button class=""btn btn-danger (click)="onDestroyFirst()" > Destroy first server Element </button>
         <!-- [srvElement]- it is a alias for serverElement type definition [element] -->
-        <app-server-element *ngFor="let serverElement of serverElements" [srvElement] ='serverElement'>
-          <p>
-            <strong *ngIf="serverElement.type === 'server'" style="color: red;">{{ serverElement.content }}</strong>
-            <strong *ngIf="serverElement.type === 'blueprint'" >{{ serverElement.content }}</strong>
+        <app-server-element 
+        *ngFor="let serverElement of serverElements" 
+        [srvElement] ='serverElement'>
+          <p #contentParagraph>
+            <strong *ngIf="serverElement.type === 'server'" style="color: red;" >{{ serverElement.content }}</strong>
+            <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
           </p>
         </app-server-element>
       </div>
