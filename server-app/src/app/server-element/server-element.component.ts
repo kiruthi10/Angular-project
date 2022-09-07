@@ -11,7 +11,7 @@ export class ServerElementComponent implements OnInit {
   // @input decorator is used to bind component with serverElement component- srvElement is a alias for element
   // single element property type definition to display in serverElement html file 
   @Input('srvElement') element!: { type: string; name: string; content: string; };
-
+  
   @ViewChild('heading', { static: true }) heading!: ElementRef;
   @ContentChild ('contentParagraph', { static: true }) contentParagraph!: ElementRef;
 
@@ -23,6 +23,7 @@ export class ServerElementComponent implements OnInit {
 
   constructor() { 
     console.log("constructor called");
+    //console.log(this.element.name);
   }
 
   ngOnChanges(changes: SimpleChange){
